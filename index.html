@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Theatre Ticketing</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    
+    <header>
+      <h1>Grand Theatre Ticketing</h1>
+    </header>
+    <main>
+      <!-- Map navigation controls -->
+      <div id="controls">
+        <button id="zoom-in">Zoom In</button>
+        <button id="zoom-out">Zoom Out</button>
+        <button id="move-up">Move Up</button>
+        <button id="move-down">Move Down</button>
+        <button id="move-left">Move Left</button>
+        <button id="move-right">Move Right</button>
+        <button id="reset-view">Reset/Center View</button>
+      </div>
+
+      <div class="layout-container">
+        <!-- Venue Map Area -->
+        <section id="map-container">
+          <div id="venue-map">
+            <div class="stage">STAGE</div>
+            <div id="seats-container">
+              <!-- Seats will be dynamically generated here in Week 2 -->
+            </div>
+          </div>
+        </section>
+
+        <!-- Interface Panel -->
+        <aside id="side-panel">
+          <div id="inspection-panel">
+            <h2>Seat Inspection</h2>
+            <p id="seat-details">Select a seat to view details.</p>
+            <p id="seat-price"></p>
+            <!-- ADD TO CART action -->
+            <button id="add-to-cart" disabled>ADD TO CART</button>
+          </div>
+
+          <div id="cart-panel">
+            <h2>Your Cart</h2>
+            <ul id="cart-items"></ul>
+            <p>Total: $<span id="cart-total">0</span></p>
+          </div>
+        </aside>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
