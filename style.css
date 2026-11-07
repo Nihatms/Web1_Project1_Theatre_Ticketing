@@ -389,3 +389,10 @@ header {
     font-size: 0.8rem;
   }
 }
+
+
+/* Fixes blue text selection highlight while dragging */
+#venue-map, .seat {
+  user-select: none;
+  -webkit-user-select: none;
+}
