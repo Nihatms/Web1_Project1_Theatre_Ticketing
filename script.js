@@ -243,3 +243,21 @@ function loadCartFromStorage() {
 }
 
 loadCartFromStorage();
+
+
+// THIS PREVENTS adding unavailable seats
+function isSeatAvailable(seatElement) {
+  return seatElement && seatElement.classList.contains("available");
+}
+
+// CHECK IF SEAT IS IN CART WHEN CLICKED AND DISPLAY MESSAGE
+seatsContainer.addEventListener("click", (e) => {
+  if (e.target.classList.contains("seat") && e.target.classList.contains("in-cart")) {
+    
+    seatDetailsDisplay.textContent = "This seat is already in your cart.";
+    
+    seatPriceDisplay.textContent = "";
+    
+    addToCartBtn.disabled = true;
+  }
+});
