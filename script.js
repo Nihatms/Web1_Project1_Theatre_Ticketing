@@ -261,3 +261,48 @@ seatsContainer.addEventListener("click", (e) => {
     addToCartBtn.disabled = true;
   }
 });
+
+// BONUS SECTION: Implementing Mouse-Wheel Zoom and "Click and Drag" Panning
+const mapContainer = document.getElementById("map-container");
+
+//Mouse-Wheel Zoom
+mapContainer.addEventListener("wheel", (e) => {
+  e.preventDefault();
+  if (e.deltaY < 0) {
+    zoomLevel += 0.05;
+  } else {
+    if (zoomLevel > 0.5) zoomLevel -= 0.05;
+  }
+  updateMapTransform();
+});
+
+//Click-and-Drag Panning
+let isDragging = false;
+let startX = 0;
+let startY = 0;
+
+mapContainer.addEventListener("mousedown", (e) =>  {
+  if (e.target.classList.contains("seat")) return;
+  isDragging = true;
+  startX = e.clientX - panX;
+  startY = e.clientY - panY;
+
+  mapContainer.style.cursor = "grabbing";
+
+});
+
+window.addEventListener("mousemove", (e) => {
+  if (!isDragging) return;
+  e.preventDefault();
+
+  panX = e.clientX - startX;
+  panY = e.clientY - startY;
+
+  updateMapTransform();
+});
+
+
+window.addEventListener("mouseup", () => {
+  isDragging = false;
+  mapContainer.style.cursor = "default";
+});
